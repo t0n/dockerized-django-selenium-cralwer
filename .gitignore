@@ -99,3 +99,10 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+
+.idea/
+.env/
+settings_local.py
+django.log
+db.sqlite3

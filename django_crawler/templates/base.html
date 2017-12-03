@@ -1,0 +1,33 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+<head>
+    <title>{% block title %}Title{% endblock %}</title>
+
+    <meta http-equiv="Content-Type" content="text/html" charset="utf8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" type="text/css" />
+
+    {% block styles %}
+    {% endblock %}
+
+</head>
+
+<body>
+
+    {% block main_content %}
+    {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
+</body>
+
+</html>
