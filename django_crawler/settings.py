@@ -30,7 +30,6 @@ INSTALLED_APPS = [
 
     # django_crawler
     'django_crawler',
-    'apps.dashboard',
 ]
 
 MIDDLEWARE = [

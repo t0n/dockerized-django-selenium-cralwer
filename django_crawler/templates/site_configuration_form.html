@@ -1,0 +1,30 @@
+{% extends 'site_page.html' %}
+
+{% load i18n %}
+{% load static %}
+{% load bootstrap %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <br/>
+
+	<div class="container-fluid">
+		<div class="row">
+	    <div class="col-sm-6">
+		    <form action="" method="post" enctype="multipart/form-data">
+			    {% csrf_token %}
+			    {{ form|bootstrap }}
+			    <button type="button" class="btn btn-default" onClick="javascript:history.back();">{% trans 'Cancel' %}</button>
+			    <button type="submit" class="btn btn-primary">{% trans 'Save' %}</button>
+        </form>
+	    </div>
+		</div>
+	</div>
+
+</div>
+
+{% endblock %}
+

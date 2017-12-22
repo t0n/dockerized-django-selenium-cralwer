@@ -8,9 +8,8 @@ urlpatterns = [
 
     url(r'^$', views.HomePage.as_view(), name='home'),
 
-    url('^login/$', auth_views.LoginView.as_view(template_name='login.html')),
+    url(r'^sites/create$', views.SiteConfigurationCreateView.as_view(), name='sites_create'),
 
-    url(r'^dashboard/', include('apps.dashboard.urls', namespace='dashboard')),
 
 ]
 

@@ -6,7 +6,42 @@
 
 {% block content %}
 
-Main
+<div class="container-fluid">
+
+    <br/>
+
+    <div class="buttons">
+
+        <a href="{% url 'sites_create' %}" class="btn btn-sm btn-primary">Add Site</a>
+
+        <!--<a href="#" class="btn btn-sm btn-success">Results</a>-->
+
+        <a href="#" class="btn btn-sm btn-danger">Start Crawling</a>
+
+    </div>
+
+    <br/>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Site URL</th>
+            <th scope="col">Site Enabled</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for site in object_list %}
+        <tr>
+            <th scope="row">{{ site.id }}</th>
+            <td>{{ site.url }}</td>
+            <td>{{ site.enabled }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
 
 {% endblock %}
 
