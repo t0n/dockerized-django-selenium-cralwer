@@ -3,3 +3,5 @@ django-bootstrap-form==3.2.1
 django-bootstrap3
 kombu
 celery
+redis
+celery[redis]

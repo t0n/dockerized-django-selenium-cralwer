@@ -12,3 +12,13 @@ class SiteConfiguration(models.Model):
 
     def __str__(self):
         return '{} [{}]'.format(self.url, self.enabled)
+
+
+class SiteParsingSession(models.Model):
+    sites_configurations = models.ManyToManyField(SiteConfiguration)
+    status = models.CharField(max_length=100)
+
+
+class SiteParsingResult(models.Model):
+    site = models.ForeignKey(SiteConfiguration)
+    session = models.ForeignKey(SiteParsingSession)
