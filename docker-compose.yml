@@ -2,57 +2,34 @@ version: '3.2'
 
 services:
 
-  db:
-    image: postgres:9.4
-    hostname: db
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=postgres
-    ports:
-      - "5432:5432"
-
   redis:
     image: redis:2.8.19
-    hostname: redis
-
-  rabbit:
-    hostname: rabbit
-    image: rabbitmq:3.6.0
-    environment:
-      - RABBITMQ_DEFAULT_USER=admin
-      - RABBITMQ_DEFAULT_PASS=mypass
     ports:
-      - "5672:5672"  # for debugging
-      - "15672:15672"  # rabbitmq management plugin
+      - "6999:6379"
+
+  selenium:
+    image: selenium/standalone-firefox-debug
+    ports:
+      - "4444:4444"
 
   web:
     build:
       context: .
       dockerfile: docker/django_crawler.dockerfile
-    hostname: web
+#    hostname: web
     command: ./run_web.sh
-#    volumes:
-#      - .:/app  # mount current directory inside container
     ports:
       - "8000:8000"
     links:
-      - db
-      - rabbit
       - redis
-    depends_on:
-      - db
+    environment:
+      - SELENIUM_HOST=selenium
+      - SELENIUM_PORT=4444
 
-  worker:
-    build:
-      context: .
-      dockerfile: docker/celery.dockerfile
-    command: ./run_celery.sh
-#    volumes:
-#      - .:/app
-    links:
-      - db
-      - rabbit
-      - redis
-    depends_on:
-      - rabbit
+#  worker:
+#    build:
+#      context: .
+#      dockerfile: docker/celery.dockerfile
+#    command: ./run_celery.sh
+#    links:
+#      - redis

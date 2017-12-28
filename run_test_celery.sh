@@ -1,0 +1,1 @@
+celery -A django_crawler worker --app=django_crawler.celery_config:app -l info

@@ -1,0 +1,5 @@
+.env
+db.sqlite3
+django.log
+docker-compose.yml
+README.md

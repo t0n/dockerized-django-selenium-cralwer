@@ -1,7 +1,13 @@
+amqp==2.2.2
+billiard==3.5.0.3
+celery==4.1.0
 Django==1.11
 django-bootstrap-form==3.2.1
-django-bootstrap3
-kombu
-celery
-redis
+django-bootstrap3==9.1.0
+kombu==4.1.0
+pytz==2017.3
+redis==2.10.5
+vine==1.1.4
 celery[redis]
+beautifulsoup4==4.4.0
+selenium==3.7.0

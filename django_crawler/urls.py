@@ -10,6 +10,8 @@ urlpatterns = [
 
     url(r'^sites/create$', views.SiteConfigurationCreateView.as_view(), name='sites_create'),
 
+    url(r'^crawling/start$', views.StartCrawling.as_view(), name='start_crawling'),
+
 
 ]
 
