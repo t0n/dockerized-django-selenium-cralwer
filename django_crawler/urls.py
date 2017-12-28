@@ -12,6 +12,10 @@ urlpatterns = [
 
     url(r'^crawling/start$', views.StartCrawling.as_view(), name='start_crawling'),
 
+    url(r'^results$', views.Results.as_view(), name='results'),
+
+    url(r'^results/(?P<pk>[0-9]+)/$', views.SessionDetails.as_view(), name='session_details'),
+
 
 ]
 

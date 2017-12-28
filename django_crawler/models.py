@@ -18,7 +18,14 @@ class SiteParsingSession(models.Model):
     sites_configurations = models.ManyToManyField(SiteConfiguration)
     status = models.CharField(max_length=100)
 
+    def get_total_sites(self):
+        return self.sites_configurations.count()
+
+    def get_results_count(self):
+        return self.session_results.all().count()
+
 
 class SiteParsingResult(models.Model):
     site = models.ForeignKey(SiteConfiguration)
-    session = models.ForeignKey(SiteParsingSession)
+    session = models.ForeignKey(SiteParsingSession, related_name='session_results')
+    html = models.TextField(default='')

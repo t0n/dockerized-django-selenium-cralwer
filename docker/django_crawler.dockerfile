@@ -32,7 +32,9 @@ RUN pip3 install --upgrade pip
 
 WORKDIR /var/django-crawler
 ADD ./requirements_base.txt /var/django-crawler
+ADD ./requirements_docker.txt /var/django-crawler
 RUN pip3 install -b build/ --ignore-installed --no-cache-dir --upgrade -r /var/django-crawler/requirements_base.txt
+RUN pip3 install -b build/ --ignore-installed --no-cache-dir --upgrade -r /var/django-crawler/requirements_docker.txt
 RUN rm -rf build/
 RUN mkdir logs
 

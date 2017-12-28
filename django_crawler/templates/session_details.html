@@ -1,0 +1,47 @@
+{% extends 'site_page.html' %}
+
+{% load i18n %}
+{% load static %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2>Session #{{ session.id }} - {{ session.status }}</h2>
+
+    <br/>
+
+    <div class="buttons">
+
+        <a href="{% url 'home' %}" class="btn btn-sm btn-success">Home</a>
+
+    </div>
+
+    <br/>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for result in object_list %}
+        <tr>
+            <td scope="row">
+                {{ result.site.url }}
+            </td>
+            <td>{{ result.html|slice:"0:40" }}</td>
+            <td></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
+

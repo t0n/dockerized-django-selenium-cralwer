@@ -76,5 +76,5 @@ class Crawler(object):
         return driver
 
     def do_crawling(self, site_url):
-        self.driver.get('http://google.com')
+        self.driver.get(site_url)
         return self.driver.page_source
